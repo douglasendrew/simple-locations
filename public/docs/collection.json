@@ -1,0 +1,282 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/0.0.0.0:456\/"
+        }
+    ],
+    "info": {
+        "name": "Documenta\u00e7\u00e3o API - Gerenciamento de Locais",
+        "_postman_id": "7a9dd005-7824-47b6-903e-653719d4f9bb",
+        "description": "Gerencie locais de forma facil. Utilize esta API e seja feliz :)",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Criando Local",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/location\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/location\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Pra\u00e7a da Cidade\",\"slug\":\"praca-da-cidade\",\"city\":\"Biriui\",\"state\":\"S\u00e3o Paulo\"}"
+                        },
+                        "description": "Crie um local de maneira f\u00e1cil, siga as instru\u00e7\u00f5es.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "ok",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Editando Local",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/location\/edit\/:location_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/location\/edit\/:location_id",
+                            "variable": [
+                                {
+                                    "id": "location_id",
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "ID do local que deseja editar."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Bairro da Cidade\",\"slug\":\"praca-da-cidade\",\"city\":\"S\u00e3o Paulo\",\"state\":\"S\u00e3o Paulo\"}"
+                        },
+                        "description": "Edite um local utilizando este endpoint.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Pesquisando um local",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/location\/search\/:location_term",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/location\/search\/:location_term",
+                            "variable": [
+                                {
+                                    "id": "location_term",
+                                    "key": "location_term",
+                                    "value": "Pra%C3%A7a",
+                                    "description": "Termo que deseja pesquisa dentre todos locais cadastrados."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Obtenha informa\u00e7\u00f5es sobre um local espec\u00edfico.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "ok",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Todos Locais",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/location\/all",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/location\/all"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Obtenha uma lista de todos locais cadastrados.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "ok",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Deletando um local",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/location\/delete\/:location_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/location\/delete\/:location_id",
+                            "variable": [
+                                {
+                                    "id": "location_id",
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "ID do local que deseja deletar."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Delete um local.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

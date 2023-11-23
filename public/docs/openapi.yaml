@@ -1,0 +1,167 @@
+openapi: 3.0.3
+info:
+  title: 'Documentação API - Gerenciamento de Locais'
+  description: 'Gerencie locais de forma facil. Utilize esta API e seja feliz :)'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://0.0.0.0:456'
+paths:
+  /api/location/create:
+    post:
+      summary: 'Criando Local'
+      operationId: criandoLocal
+      description: 'Crie um local de maneira fácil, siga as instruções.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ok
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Nome do local desejado.'
+                  example: 'Praça da Cidade'
+                slug:
+                  type: string
+                  description: 'Slug que deseja atribuir a esse local.'
+                  example: praca-da-cidade
+                city:
+                  type: string
+                  description: 'Cidade em que o local está.'
+                  example: Biriui
+                state:
+                  type: string
+                  description: 'Estado em que o local está localizado.'
+                  example: 'São Paulo'
+              required:
+                - name
+                - slug
+                - city
+                - state
+      security: []
+  '/api/location/edit/{location_id}':
+    put:
+      summary: 'Editando Local'
+      operationId: editandoLocal
+      description: 'Edite um local utilizando este endpoint.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Nome do local desejado.'
+                  example: 'Bairro da Cidade'
+                slug:
+                  type: string
+                  description: 'Slug que deseja atribuir a esse local.'
+                  example: praca-da-cidade
+                city:
+                  type: string
+                  description: 'Cidade em que o local está.'
+                  example: 'São Paulo'
+                state:
+                  type: string
+                  description: 'Estado em que o local está localizado.'
+                  example: 'São Paulo'
+              required:
+                - name
+                - slug
+                - city
+                - state
+      security: []
+    parameters:
+      -
+        in: path
+        name: location_id
+        description: 'ID do local que deseja editar.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/location/search/{location_term}':
+    get:
+      summary: 'Pesquisando um local'
+      operationId: pesquisandoUmLocal
+      description: 'Obtenha informações sobre um local específico.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ok
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: location_term
+        description: 'Termo que deseja pesquisa dentre todos locais cadastrados.'
+        example: Praça
+        required: true
+        schema:
+          type: string
+  /api/location/all:
+    get:
+      summary: 'Todos Locais'
+      operationId: todosLocais
+      description: 'Obtenha uma lista de todos locais cadastrados.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ok
+      tags:
+        - Endpoints
+      security: []
+  '/api/location/delete/{location_id}':
+    put:
+      summary: 'Deletando um local'
+      operationId: deletandoUmLocal
+      description: 'Delete um local.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: location_id
+        description: 'ID do local que deseja deletar.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
